@@ -27,5 +27,14 @@ class ResourceGeneratorServiceProvider extends ServiceProvider
             return $app['LaravelScaffold\ResourceGenerator\Commands\ResourceMakeCommand'];
         });
         $this->commands('command.laravel-scaffold.makeresource');
+
+
+        // if ($this->app->runningInConsole()) {
+        //     $this->commands([
+        //         FooCommand::class,
+        //         BarCommand::class,
+        //     ]);
+        // }
+
     }
 }

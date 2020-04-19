@@ -28,5 +28,15 @@
       "LaravelScaffold\\ResourceGenerator\\": ["src/", "tests/"],
       "App\\": "tests/generated/app/"
     }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "JayTheGeek\\LaravelScaffold\\Commands\\ResourceMakeCommand"
+      ],
+      "aliases": {
+        "LaravelScaffold": "JayTheGeek\\LaravelScaffold\\Facade"
+      }
+    }
   }
 }
