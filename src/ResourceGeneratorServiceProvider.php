@@ -23,11 +23,9 @@ class ResourceGeneratorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('command.LaravelScaffold.makeresource', function ($app) {
+        $this->app->singleton('command.laravel-scaffold.makeresource', function ($app) {
             return $app['LaravelScaffold\ResourceGenerator\Commands\ResourceMakeCommand'];
         });
-        $this->commands('command.LaravelScaffold.makeresource');
-
+        $this->commands('command.laravel-scaffold.makeresource');
     }
-
 }
