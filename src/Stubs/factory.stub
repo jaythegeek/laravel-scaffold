@@ -1,8 +1,0 @@
-
-// CLASSNAME model factory
-
-$factory->define(App\CLASSNAME::class, function (Faker\Generator $faker) {
-    return [
-        ATTRIBUTES
-    ];
-});

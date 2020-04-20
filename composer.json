@@ -1,42 +1,46 @@
 {
-  "name": "jaythegeek/laravel-scaffold",
-  "description": "Scaffolding for passwordless laravel setup, vue navigation and a maker command for generating a model, migration, controller, routes and factory from the command line.",
-  "keywords": ["laravel", "generators", "scaffolding"],
-  "license": "MIT",
-  "authors": [{
-    "name": "Alex Jay",
-    "email": "alex@jaythegeek.io"
-  }],
-  "require": {
-    "php": "^7.2.5",
-    "illuminate/support": "7.6.*",
-    "illuminate/console": "7.6.*",
-    "illuminate/filesystem": "7.6.*"
-  },
-  "require-dev": {
-    "mockery/mockery": "^1.3.1",
-    "orchestra/testbench": "^5.0",
-    "phpunit/phpunit": "^8.4|^9.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "LaravelScaffold\\ResourceGenerator\\": "src/"
+    "name": "jaythegeek/laravelscaffolding",
+    "description": "Scaffold out passwordless laravel setup",
+    "license": "license",
+    "authors": [
+        {
+            "name": "Alex Jay",
+            "email": "alex@jaythegeek.io",
+            "homepage": "https://jaythegeek.io"
+        }
+    ],
+    "homepage": "https://github.com/jaythegeek/laravelscaffolding",
+    "keywords": [
+        "Laravel",
+        "LaravelScaffolding"
+    ],
+    "require": {
+        "illuminate/support": "~5|~6|~7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3|~4",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JayTheGeek\\LaravelScaffolding\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JayTheGeek\\LaravelScaffolding\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JayTheGeek\\LaravelScaffolding\\LaravelScaffoldingServiceProvider"
+            ],
+            "aliases": {
+                "LaravelScaffolding": "JayTheGeek\\LaravelScaffolding\\Facades\\LaravelScaffolding"
+            }
+        }
     }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "LaravelScaffold\\ResourceGenerator\\": ["src/", "tests/"],
-      "App\\": "tests/generated/app/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "JayTheGeek\\LaravelScaffold\\Commands\\ResourceMakeCommand"
-      ],
-      "aliases": {
-        "LaravelScaffold": "JayTheGeek\\LaravelScaffold\\Facade"
-      }
-    }
-  }
 }
