@@ -1,4 +1,4 @@
-# LaravelScaffolding
+# LaravelScaffold
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -12,7 +12,7 @@ This is where your description should go. Take a look at [contributing.md](contr
 Via Composer
 
 ``` bash
-$ composer require jaythegeek/laravelscaffolding
+$ composer require jaythegeek/laravel-scaffold
 ```
 
 ## Usage
@@ -44,14 +44,14 @@ If you discover any security related issues, please email author email instead o
 
 license. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/jaythegeek/laravelscaffolding.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/jaythegeek/laravelscaffolding.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/jaythegeek/laravelscaffolding/master.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/jaythegeek/laravel-scaffold.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/jaythegeek/laravel-scaffold.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/jaythegeek/laravel-scaffold/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
-[link-packagist]: https://packagist.org/packages/jaythegeek/laravelscaffolding
-[link-downloads]: https://packagist.org/packages/jaythegeek/laravelscaffolding
-[link-travis]: https://travis-ci.org/jaythegeek/laravelscaffolding
+[link-packagist]: https://packagist.org/packages/jaythegeek/laravel-scaffold
+[link-downloads]: https://packagist.org/packages/jaythegeek/laravel-scaffold
+[link-travis]: https://travis-ci.org/jaythegeek/laravel-scaffold
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/jaythegeek
 [link-contributors]: ../../contributors

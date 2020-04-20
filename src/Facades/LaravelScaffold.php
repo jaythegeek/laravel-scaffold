@@ -1,10 +1,10 @@
 <?php
 
-namespace JayTheGeek\LaravelScaffolding\Facades;
+namespace JayTheGeek\LaravelScaffold\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class LaravelScaffolding extends Facade
+class LaravelScaffold extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class LaravelScaffolding extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'laravelscaffolding';
+        return 'laravel-scaffold';
     }
 }

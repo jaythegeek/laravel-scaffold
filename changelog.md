@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `LaravelScaffolding` will be documented in this file.
+All notable changes to `LaravelScaffold` will be documented in this file.
 
 ## Version 1.0
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace JayTheGeek\LaravelScaffolding;
+namespace JayTheGeek\LaravelScaffold;
 
 use Illuminate\Support\ServiceProvider;
-use JayTheGeek\LaravelScaffolding\Commands\BuildModel;
-use JayTheGeek\LaravelScaffolding\Commands\ScaffoldPasswordless;
+use JayTheGeek\LaravelScaffold\Commands\BuildModel;
+use JayTheGeek\LaravelScaffold\Commands\ScaffoldPasswordless;
 
-class LaravelScaffoldingServiceProvider extends ServiceProvider
+class LaravelScaffoldServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
@@ -17,13 +17,15 @@ class LaravelScaffoldingServiceProvider extends ServiceProvider
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'jaythegeek');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'jaythegeek');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
+
+        
     }
 
     /**
@@ -33,11 +35,11 @@ class LaravelScaffoldingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/laravelscaffolding.php', 'laravelscaffolding');
+        $this->mergeConfigFrom(__DIR__ . '/../config/laravel-scaffold.php', 'laravel-scaffold');
 
         // Register the service the package provides.
-        $this->app->singleton('laravelscaffolding', function ($app) {
-            return new LaravelScaffolding;
+        $this->app->singleton('laravel-scaffold', function ($app) {
+            return new LaravelScaffold;
         });
     }
 
@@ -48,7 +50,7 @@ class LaravelScaffoldingServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['laravelscaffolding'];
+        return ['laravel-scaffold'];
     }
 
     /**
@@ -60,23 +62,23 @@ class LaravelScaffoldingServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__ . '/../config/laravelscaffolding.php' => config_path('laravelscaffolding.php'),
-        ], 'laravelscaffolding.config');
+            __DIR__ . '/../config/laravel-scaffold.php' => config_path('laravel-scaffold.php'),
+        ], 'laravel-scaffold.config');
 
         // Publishing the views.
         /*$this->publishes([
             __DIR__.'/../resources/views' => base_path('resources/views/vendor/jaythegeek'),
-        ], 'laravelscaffolding.views');*/
+        ], 'laravel-scaffold.views');*/
 
         // Publishing assets.
         /*$this->publishes([
             __DIR__.'/../resources/assets' => public_path('vendor/jaythegeek'),
-        ], 'laravelscaffolding.views');*/
+        ], 'laravel-scaffold.views');*/
 
         // Publishing the translation files.
         /*$this->publishes([
             __DIR__.'/../resources/lang' => resource_path('lang/vendor/jaythegeek'),
-        ], 'laravelscaffolding.views');*/
+        ], 'laravel-scaffold.views');*/
 
         // Registering package commands.
         $this->commands([

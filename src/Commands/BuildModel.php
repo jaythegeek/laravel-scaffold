@@ -1,6 +1,6 @@
 <?php
 
-namespace JayTheGeek\LaravelScaffolding\Commands;
+namespace JayTheGeek\LaravelScaffold\Commands;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;

@@ -1,7 +1,7 @@
 {
-    "name": "jaythegeek/laravelscaffolding",
+    "name": "jaythegeek/laravel-scaffold",
     "description": "Scaffold out passwordless laravel setup",
-    "license": "license",
+    "license": "MIT",
     "authors": [
         {
             "name": "Alex Jay",
@@ -9,37 +9,37 @@
             "homepage": "https://jaythegeek.io"
         }
     ],
-    "homepage": "https://github.com/jaythegeek/laravelscaffolding",
+    "homepage": "https://github.com/jaythegeek/laravel-scaffold",
     "keywords": [
         "Laravel",
-        "LaravelScaffolding"
+        "LaravelScaffold"
     ],
     "require": {
-        "illuminate/support": "~5|~6|~7"
+        "illuminate/support": "~5|~6|~7",
+        "laravel/ui": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0",
+        "phpunit/phpunit": "^9.0",
         "mockery/mockery": "^1.1",
-        "orchestra/testbench": "~3|~4",
-        "sempro/phpunit-pretty-print": "^1.0"
+        "orchestra/testbench": "~3|~4|~5"
     },
     "autoload": {
         "psr-4": {
-            "JayTheGeek\\LaravelScaffolding\\": "src/"
+            "JayTheGeek\\LaravelScaffold\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JayTheGeek\\LaravelScaffolding\\Tests\\": "tests"
+            "JayTheGeek\\LaravelScaffold\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "JayTheGeek\\LaravelScaffolding\\LaravelScaffoldingServiceProvider"
+                "JayTheGeek\\LaravelScaffold\\LaravelScaffoldServiceProvider"
             ],
             "aliases": {
-                "LaravelScaffolding": "JayTheGeek\\LaravelScaffolding\\Facades\\LaravelScaffolding"
+                "LaravelScaffold": "JayTheGeek\\LaravelScaffold\\Facades\\LaravelScaffold"
             }
         }
     }

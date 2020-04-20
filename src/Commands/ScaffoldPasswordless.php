@@ -1,11 +1,12 @@
 <?php
 
-namespace JayTheGeek\LaravelScaffolding\Commands;
+namespace JayTheGeek\LaravelScaffold\Commands;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Artisan;
 
 class ScaffoldPasswordless extends Command
 {
@@ -57,6 +58,14 @@ class ScaffoldPasswordless extends Command
      */
     public function handle()
     {
-        echo "hey";
+        $this->loadMigrations();
+    }
+
+    private function loadMigrations()
+    {
+        Artisan::call("ui vue --auth");
+        $this->info('Migrations sorted out!');
+
+        return true;
     }
 }
