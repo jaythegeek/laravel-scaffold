@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Mail;
+
+use App\User;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class UserLoginTokenEmail extends Mailable implements ShouldQueue
+{
+    use Queueable, SerializesModels;
+
+    public $user;
+
+    public $url;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct(User $user, $url)
+    {
+        $this->user = $user;
+        $this->url = $url;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->subject('User Login Link')->markdown('mails.auth.users.login-token')->with('user', $this->user)->with('url', $this->url);
+    }
+}

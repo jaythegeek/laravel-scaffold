@@ -1,0 +1,11 @@
+require('./bootstrap');
+
+window.Vue = require('vue');
+
+Vue.component('main-nav', require('./layouts/MainNav.vue').default);
+Vue.component('login-page', () => import( /* webpackChunkName:"login-page" */ './auth/LoginPage.vue'));
+
+
+const app = new Vue({
+    el: '#app',
+});

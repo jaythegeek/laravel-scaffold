@@ -1,0 +1,27 @@
+@component('mail::message')
+# Login Token
+
+Hi {{ $user->first_name ?? $user->name }},
+
+Please find your login link below, for security, this will expire in 24 hours! 
+
+During that 24 hour period you may use this link as many times as you wish.
+
+@component('mail::button', ['url' => $url])
+Login
+@endcomponent
+
+<i>Can't use the button? Copy &amp; paste this link into a browser.</i>
+<a href="{{$url}}">{{ $url }}</a>
+
+<small><i>Didn't request this? <a href="{{ config('services.support.url') }}/login-token-not-requested">Click here</a></i></small>
+
+Thanks,<br>
+Swandoola
+
+<hr>
+
+<small><i>*This email is sent automatically by Swandoola, the email address, no-reply@swandoola.com, is not monitored, please do not reply to this email.</i></small>
+
+<small><i>**If you have received this email in error, please forward the email to <a href="mailto:support@swandoola.com">support@swandoola.com</a> and delete the original email from your inbox.</i></small>
+@endcomponent

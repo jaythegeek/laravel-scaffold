@@ -1,0 +1,92 @@
+<template>
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-md-8 mx-auto">
+        <div class="card">
+          <div class="card-header text-center">
+            <h5 class="mb-0 text-primary">User Login</h5>
+          </div>
+          <div class="card-body">
+            <form @submit.prevent="login" v-if="!requested">
+              <div class="row mb-5">
+                <div class="col-md-10 mx-auto">
+                  <div class="row mb-4">
+                    <div class="col">
+                      <input
+                        id="email"
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        v-model="email"
+                        required
+                        autocomplete="email"
+                        autofocus
+                        placeholder="Email address"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col text-center">
+                      <button type="submit" class="btn btn-primary btn-block" :disabled="disabled">
+                        <i class="fad mr-2" :class="disabled ? 'fa-spin fa-spinner' : 'fa-key'"></i>Request Login Link
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-0">
+                <div class="col">
+                  <div class="alert alert-info" role="alert">
+                    <h4 class="alert-heading">
+                      <i class="fad fa-info-circle mr-2"></i>Passwordless login
+                    </h4>
+                    <p class="mb-0">
+                      You do not require a password to use Swandoola, just enter your
+                      email and we will send you a special link that logs you in!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!--  -->
+            <div class="row" v-if="requested">
+              <div class="col">
+                <p class="alert alert-info">
+                  <i class="fad fa-info mr-2"></i>We have sent a login link to your email address, click the link in the email to login securely to Swandoola, you may close this tab.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      requested: false,
+      email: "",
+      disabled: false
+    };
+  },
+  methods: {
+    login() {
+      this.disabled = true;
+      window.axios
+        .post("/login", {
+          email: this.email
+        })
+        .then(({ data }) => {
+          this.requested = true;
+        });
+    }
+  }
+};
+</script>
+
+<style>
+</style>

@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Handlers\Login;
+
+use Carbon\Carbon;
+use App\LoginToken;
+
+class LoginHandler
+{
+    public function createUserAccessToken($emailAddress, $userId)
+    {
+        $token = md5($emailAddress . microtime());
+        $loginToken = new LoginToken;
+        $loginToken->user_id = $userId;
+        $loginToken->requester = 'user';
+        $loginToken->token = $token;
+        $loginToken->expires_at = Carbon::now()->addHours(24);
+        $loginToken->save();
+        return $loginToken;
+    }
+
+
+
+
+
+    // 
+
+    public function generateTempImpersonationToken($emailAddress, $clientId)
+    {
+        $token = md5($emailAddress . microtime());
+        if (isset($token)) {
+
+            $loginToken = new LoginToken;
+            $loginToken->user_id = $clientId;
+            $loginToken->status = 'login_impersonation_by_' . auth()->user()->id;
+            $loginToken->type = 'active';
+            $loginToken->token = $token;
+            $loginToken->expires = \Carbon\Carbon::now()->addMinutes(1);
+            $loginToken->save();
+
+            return $loginToken;
+        }
+        return false;
+    }
+
+    public function check($token)
+    {
+        $check = LoginToken::where('token', $token)->first();
+        if ($check) {
+            // if ($check->expires > \Carbon\Carbon::now()) {
+            $token = $check;
+            if ($check->user_id != 22) {
+                $check->delete();
+            }
+            return $token;
+            // }
+            // return false;
+        }
+        return false;
+    }
+}

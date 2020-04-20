@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('pages.home');
+});
+
+Auth::routes();
+
+// Self update routes
+Route::post('github/self-update', function () {
+    Log::info('Beginning self update from GitHub WebHook');
+    if (request()['ref'] == 'refs/heads/master') {
+        $data = ['site' => 'site'];
+        Artisan::call('self:update', $data);
+        Log::info('Just updated the swandoola/clinic repo');
+        return response()->json(['message' => 'swandoola/clinic has been updated!'], 200);
+    } else {
+        Log::info('Self updater - Not an update from master - ignoring');
+        return response()->json(['message' => 'swandoola/clinic - Not an update from master - ignoring'], 200);
+    }
+});
+
