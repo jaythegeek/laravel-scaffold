@@ -7,21 +7,21 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
 use Illuminate\Filesystem\Filesystem;
 
-class ScaffoldPasswordless extends Command
+class BuildModel extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:passwordless';
+    protected $signature = 'make:modelplus {name : The model name} {attributes?}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Scaffold it out';
+    protected $description = 'Build a model and generate migrations, controllers, routes etc';
 
     /**
      * The filesystem instance.
@@ -57,6 +57,6 @@ class ScaffoldPasswordless extends Command
      */
     public function handle()
     {
-        echo "hey";
+        echo "hey, lets build a model!";
     }
 }

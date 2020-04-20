@@ -3,6 +3,7 @@
 namespace JayTheGeek\LaravelScaffolding;
 
 use Illuminate\Support\ServiceProvider;
+use JayTheGeek\LaravelScaffolding\Commands\BuildModel;
 use JayTheGeek\LaravelScaffolding\Commands\ScaffoldPasswordless;
 
 class LaravelScaffoldingServiceProvider extends ServiceProvider
@@ -32,7 +33,7 @@ class LaravelScaffoldingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/laravelscaffolding.php', 'laravelscaffolding');
+        $this->mergeConfigFrom(__DIR__ . '/../config/laravelscaffolding.php', 'laravelscaffolding');
 
         // Register the service the package provides.
         $this->app->singleton('laravelscaffolding', function ($app) {
@@ -49,7 +50,7 @@ class LaravelScaffoldingServiceProvider extends ServiceProvider
     {
         return ['laravelscaffolding'];
     }
-    
+
     /**
      * Console-specific booting.
      *
@@ -59,7 +60,7 @@ class LaravelScaffoldingServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/laravelscaffolding.php' => config_path('laravelscaffolding.php'),
+            __DIR__ . '/../config/laravelscaffolding.php' => config_path('laravelscaffolding.php'),
         ], 'laravelscaffolding.config');
 
         // Publishing the views.
@@ -79,7 +80,8 @@ class LaravelScaffoldingServiceProvider extends ServiceProvider
 
         // Registering package commands.
         $this->commands([
-            ScaffoldPasswordless::class
+            ScaffoldPasswordless::class,
+            BuildModel::class
         ]);
     }
 }
