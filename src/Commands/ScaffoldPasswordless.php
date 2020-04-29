@@ -230,7 +230,7 @@ class ScaffoldPasswordless extends Command
         $this->fileSystem->makeDirectory(base_path('app') . '/Handlers/Login');
 
         $loginHandler = $this->fileSystem->get($this->stubsFolder . '/loginhandler.php.stub');
-        $this->fileSystem->put(base_path('app/Handlers') . '/LoginHandler.php', $loginHandler);
+        $this->fileSystem->put(base_path('app/Handlers/Login') . '/LoginHandler.php', $loginHandler);
 
         $this->info('Login handler setup');
 
