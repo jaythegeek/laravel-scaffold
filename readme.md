@@ -3,9 +3,6 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
-
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
 
 ## Installation
 
@@ -16,6 +13,25 @@ $ composer require jaythegeek/laravel-scaffold
 ```
 
 ## Usage
+
+Make sure that you have done the following, this can only be run on a brand new setup.
+
+``` bash
+laravel new somecoolproject
+```
+
+``` bash
+composer require laravel/ui
+```
+
+``` bash
+php artisan ui vue --auth
+```
+This is where the magic happens;
+
+``` bash
+php artisan make:passwordless
+```
 
 ## Change log
 
